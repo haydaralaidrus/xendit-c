@@ -38,17 +38,6 @@ extern void
 xnd_string_destroy(xnd_string_t **s);
 
 /**
- * \brief Inserts striing at the specified index.
- * \param s The dynamic string to insert.
- * \param str The string to be inserted.
- * \param index The index at which the string should be inserted. If index is
- * equal to current size, the string is appended.
- * \return 0 on successful insertion, -1 otherwise.
- */
-extern int
-xnd_string_insert(xnd_string_t **s, const char *str, const size_t index);
-
-/**
  * \brief Inserts string at the specified index no more than provided size.
  * \param s The dynamic string to insert.
  * \param str The string to be inserted.
@@ -87,6 +76,17 @@ xnd_string_clear(xnd_string_t **s);
  */
 extern int
 xnd_string_zeroize(xnd_string_t **s);
+
+/**
+ * \brief Inserts string at the specified index.
+ * \param S The dynamic string to insert.
+ * \param Str The string to be inserted.
+ * \param Index The index at which the string should be inserted. If index is
+ * equal to current size, the string is appended.
+ * \return 0 on successful insertion, -1 otherwise.
+ */
+#define xnd_string_insert(S, Str, I) \
+        xnd_string_sized_insert(S, Str, I, __SIZE_MAX__)
 
 #ifdef __cplusplus
 }
