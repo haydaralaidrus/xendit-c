@@ -76,7 +76,7 @@ xnd_client_t *client = xnd_client_new("XENDIT_API_KEY");
 ```c++
 #include <xendit/xendit.hpp>
 
-xendit::client client { "XENDIT_API_KEY" };
+xnd::client client { "XENDIT_API_KEY" };
 ```
 
 ## Compiling Your Program with Xendit C/C++ SDK
