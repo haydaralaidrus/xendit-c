@@ -93,6 +93,43 @@ xnd_string_insert(xnd_string_t **s, const char *str, const size_t index)
 }
 
 int
+xnd_string_sized_insert(xnd_string_t **s, const char *str, const size_t index,
+                        size_t size)
+{
+	size_t len, newsz;
+
+	if (s == NULL || *s == NULL)
+		return -1;
+
+	if (str == NULL || !str[0])
+		return 0; /** empty string, return immediately */
+
+	if (index > (*s)->size)
+		return -1; /** out of bound */
+
+	len = strlen(str);
+	if (len > size)
+		len = size;
+
+	newsz = (*s)->size + len;
+
+	if (xnd_string_resize(s, newsz) == -1)
+		return -1;
+
+	memmove(
+		(*s)->data + index + len,
+		(*s)->data + index,
+		((*s)->size - index) + 1
+	);
+
+	memcpy((*s)->data + index, str, len);
+
+	(*s)->size = newsz;
+
+	return 0;
+}
+
+int
 xnd_string_append(xnd_string_t **s, const char c)
 {
 	if (s == NULL || *s == NULL)

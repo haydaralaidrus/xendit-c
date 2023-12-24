@@ -49,6 +49,19 @@ extern int
 xnd_string_insert(xnd_string_t **s, const char *str, const size_t index);
 
 /**
+ * \brief Inserts string at the specified index no more than provided size.
+ * \param s The dynamic string to insert.
+ * \param str The string to be inserted.
+ * \param index The index at which the string should be inserted. If index is
+ * equal to current size, the string is appended.
+ * \param size The maximum number of bytes to be inserted.
+ * \return 0 on successful insertion, -1 otherwise.
+ */
+extern int
+xnd_string_sized_insert(xnd_string_t **s, const char *str, const size_t index,
+                        size_t size);
+
+/**
  * \brief Appends a single character to the end of the dynamic string.
  * \param s The dynamic string to append.
  * \param c The character to be appended.
