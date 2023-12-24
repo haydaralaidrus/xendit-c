@@ -1,5 +1,7 @@
 # Xendit C/C++ SDK
 
+![Status: Development](https://img.shields.io/badge/Status-Development-yellow)
+
 The **unofficial** Xendit Go SDK provides a simple and convenient way to call
 Xendit's REST API in applications written in C/C++.
 
@@ -79,7 +81,12 @@ xendit::client client { "XENDIT_API_KEY" };
 
 ## Compiling Your Program with Xendit C/C++ SDK
 
-[TODO]
+To compile your program with the static library `libxendit-c-static.a`, you'd
+typically use the following command:
+
+```bash
+gcc -o prog prog.c -lxendit-c-static
+```
 
 # Documentation
 
