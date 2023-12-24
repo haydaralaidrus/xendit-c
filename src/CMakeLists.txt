@@ -11,11 +11,11 @@ add_library(
 target_include_directories(
 	${XND_STATIC_LIBRARY}
 	PUBLIC  ${XND_INCLUDE_DIRECTORY} ${XND_SRC_DIRECTORY}
-	PRIVATE ${CURL_INCLUDE_DIR}
+	PRIVATE ${CURL_INCLUDE_DIR} ${JSON-C_INCLUDE_DIRS}
 )
 
 ## Link depended libraries
 target_link_libraries(
 	${XND_STATIC_LIBRARY}
-	PRIVATE ${CURL_LIBRARIES}
+	PRIVATE ${CURL_LIBRARIES} json-c
 )

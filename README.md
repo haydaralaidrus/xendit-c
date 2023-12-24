@@ -15,7 +15,7 @@ Xendit's REST API in applications written in C/C++.
 ## Dependencies
 
 - [libcurl](https://curl.se/libcurl)
-- [jansson](https://jansson.readthedocs.io/en/latest)
+- [json-c](https://json-c.github.io/json-c/)
 
 ## Compiling and Installation
 

@@ -15,6 +15,7 @@ enable_testing()
 
 ## Dependencies
 find_package(CURL REQUIRED)
+find_package(json-c REQUIRED)
 
 ## Flags
 if(NOT CMAKE_BUILD_TYPE)
