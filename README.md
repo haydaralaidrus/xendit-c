@@ -1,7 +1,7 @@
 # Xendit C/C++ SDK
 
 The **unofficial** Xendit Go SDK provides a simple and convenient way to call
-Xendit's REST API in applications written in Go.
+Xendit's REST API in applications written in C/C++.
 
 - Package version:
 

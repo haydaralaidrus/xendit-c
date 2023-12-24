@@ -54,6 +54,18 @@ typedef struct xnd_http_request_t {
 } xnd_http_request_t;
 
 /**
+ * \brief Initiates HTTP request module.
+ */
+extern void
+xnd_http_request_init(void);
+
+/**
+ * \brief Cleans up HTTP request module.
+ */
+extern void
+xnd_http_request_cleanup(void);
+
+/**
  * \brief Creates new HTTP request.
  * \param baseurl The base URL of the HTTP request.
  * \return NULL on failure.

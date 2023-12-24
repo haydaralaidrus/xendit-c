@@ -17,6 +17,18 @@ const char *const XND_HTTP_REQUEST_OPTIONS = "OPTIONS";
 const char *const XND_HTTP_REQUEST_TRACE   = "TRACE";
 const char *const XND_HTTP_REQUEST_PATCH   = "PATCH";
 
+void
+xnd_http_request_init(void)
+{
+	curl_global_init(CURL_GLOBAL_DEFAULT);
+}
+
+void
+xnd_http_request_cleanup(void)
+{
+	curl_global_cleanup();
+}
+
 xnd_http_request_t *
 xnd_http_request_new(const char *method, const char *baseurl)
 {
