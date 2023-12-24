@@ -221,6 +221,21 @@ xnd_http_request_send_with_data(xnd_http_request_t *req, void *data)
 	return 0;
 }
 
+size_t
+xnd_http_request_default_callback(char *ptr, size_t size, size_t nmemb,
+                                  void *data)
+{
+	xnd_string_t *response; /** memory management handled outside */
+	size_t realsize;
+
+	response = (xnd_string_t *) data;
+
+	/** TODO: use `xnd_string_sized_insert` with `realsize` */
+	xnd_string_insert(&response, ptr, response->size);
+
+	return realsize;
+}
+
 #ifdef DEBUG
 void
 xnd_http_request_dump(xnd_http_request_t *req, FILE *output)
