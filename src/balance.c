@@ -19,8 +19,6 @@ xnd_balance(const xnd_client_t *x, const char *for_user_id,
             const char *account_type, const char *currency,
             xnd_balance_t *response)
 {
-	(void) response; /** HACK: temporarily diffuse compiler warning */
-
 	xnd_http_request_t *req;
 	xnd_string_t *res;
 
