@@ -2,6 +2,6 @@
 ###############################################################################
 
 install(
-	FILES xendit.h
+	FILES xendit.h xendit.hpp
 	DESTINATION include/xendit
 )
