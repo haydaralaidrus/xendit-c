@@ -2,8 +2,8 @@
 
 ![Status: Development](https://img.shields.io/badge/Status-Development-yellow)
 
-The **unofficial** Xendit Go SDK provides a simple and convenient way to call
-Xendit's REST API in applications written in C/C++.
+The **unofficial** Xendit C/C++ SDK provides a simple and convenient way to
+call Xendit's REST API in applications written in C/C++.
 
 - Package version:
 

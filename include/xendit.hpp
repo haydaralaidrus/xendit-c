@@ -67,7 +67,7 @@ client::operator=(client &&rhs) noexcept
 	return *this;
 }
 
-bool
+inline bool
 client::has_error(void) const
 {
 	return error_;
