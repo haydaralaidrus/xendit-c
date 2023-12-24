@@ -1,0 +1,10 @@
+# IDE or editor specifics
+.vimrc
+.editorconfig
+.vscode
+
+# Personal belongings
+.local
+
+# Build files
+build/*
