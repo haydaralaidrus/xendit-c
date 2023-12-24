@@ -225,13 +225,11 @@ size_t
 xnd_http_request_default_callback(char *ptr, size_t size, size_t nmemb,
                                   void *data)
 {
-	xnd_string_t *response; /** memory management handled outside */
-	size_t realsize;
+	xnd_string_t **response; /** memory management handled outside */
+	size_t realsize = size * nmemb;
 
-	response = (xnd_string_t *) data;
-
-	/** TODO: use `xnd_string_sized_insert` with `realsize` */
-	xnd_string_insert(&response, ptr, response->size);
+	response = (xnd_string_t **) data;
+	xnd_string_sized_insert(response, ptr, (*response)->size, realsize);
 
 	return realsize;
 }

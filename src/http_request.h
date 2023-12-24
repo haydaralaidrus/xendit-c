@@ -162,7 +162,7 @@ xnd_http_request_send_with_data(xnd_http_request_t *req, void *data);
  * \param ptr The delivered data.
  * \param size The size of each data element.
  * \param nmemb The number of data elements pointed to by `ptr`.
- * \param data Pointer to user-defined data, expects `xnd_string_t *`.
+ * \param data Pointer to user-defined data, expects `xnd_string_t **`.
  * \return
  */
 extern size_t
