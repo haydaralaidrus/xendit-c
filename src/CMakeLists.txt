@@ -19,3 +19,9 @@ target_link_libraries(
 	${XND_STATIC_LIBRARY}
 	PRIVATE ${CURL_LIBRARIES} json-c
 )
+
+## Install
+install(
+	TARGETS ${XND_STATIC_LIBRARY}
+	ARCHIVE DESTINATION lib
+)
