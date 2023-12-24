@@ -25,6 +25,10 @@ public:
 	operator=(const client &rhs) = delete;
 	client &
 	operator=(client &&rhs) noexcept;
+
+	bool
+	has_error(void) const;
+
 };
 
 inline
@@ -61,6 +65,12 @@ client::operator=(client &&rhs) noexcept
 	}
 
 	return *this;
+}
+
+bool
+client::has_error(void) const
+{
+	return error_;
 }
 
 }
