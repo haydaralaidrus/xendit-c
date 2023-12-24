@@ -6,15 +6,20 @@
 
 #include <stdlib.h>
 
+#include "http_request.h"
 #include "xendit_private.h"
 
 void
 xnd_sdk_init(void)
-{ /** TODO: */ }
+{
+	xnd_http_request_init();
+}
 
 void
 xnd_sdk_cleanup(void)
-{ /** TODO: */ }
+{
+	xnd_http_request_cleanup();
+}
 
 xnd_client_t *
 xnd_client_new(const char *key)
