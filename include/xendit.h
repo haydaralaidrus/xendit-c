@@ -55,7 +55,7 @@ xnd_client_destroy(xnd_client_t *x);
  * \brief Xendit balance object.
  */
 typedef struct xnd_balance_t {
-	int balance;
+	double balance;
 } xnd_balance_t;
 
 /**

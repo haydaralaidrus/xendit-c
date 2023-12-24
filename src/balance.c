@@ -4,9 +4,15 @@
  * found in the LICENSE file or at https://opensource.org/licenses/MIT.
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
+#include <json-c/json.h>
+
 #include "strings.h"
 #include "http_request.h"
 #include "xendit_private.h"
+
+/** Binds JSON string response to Xendit balance object. */
+static int
+xnd_balance_bind(const char *jsonstr, xnd_balance_t **balance);
 
 int
 xnd_balance(const xnd_client_t *x, const char *for_user_id,
@@ -51,8 +57,28 @@ xnd_balance(const xnd_client_t *x, const char *for_user_id,
 	/** Send request */
 	xnd_http_request_send_with_data(req, (void *) &res);
 
+	/** Bind JSON response */
+	xnd_balance_bind(res->data, &response);
+
 	xnd_string_destroy(&res);
 	xnd_http_request_destroy(req);
+
+	return 0;
+}
+
+static int
+xnd_balance_bind(const char *jsonstr, xnd_balance_t **balance)
+{
+	json_object *root;
+	json_object *balance_obj = NULL;
+
+	if (jsonstr == NULL || !jsonstr[0])
+		return -1;
+
+	root = json_tokener_parse(jsonstr);
+	json_object_object_get_ex(root, "balance", &balance_obj);
+	(*balance)->balance = json_object_get_double(balance_obj);
+	json_object_put(root);
 
 	return 0;
 }
